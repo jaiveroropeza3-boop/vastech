@@ -1,9 +1,12 @@
-/* Variables de color para que sea fácil cambiar después */
+/* =======================================================
+   ESTILO GENERAL - VASTECH
+   ======================================================= */
+
 :root {
     --negro: #1a1a1a;
     --blanco: #ffffff;
     --verde-claro: #9dffb0;
-    --beige-fibra: #d2b48c; /* Este es el color de tus bolsas */
+    --beige-fibra: #d2b48c;
 }
 
 body {
@@ -11,52 +14,57 @@ body {
     color: var(--blanco);
     font-family: 'Arial', sans-serif;
     margin: 0;
+    padding: 0;
 }
 
+/* --- MENÚ DE NAVEGACIÓN (HEADER) --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     border-bottom: 2px solid var(--verde-claro);
     position: relative;
-    z-index: 10;
-/* Esto fuerza a la lista a ser una fila y quita los puntos */
-nav .navbar ul, 
-header nav ul {
-    display: flex !important;
-    list-style: none !important;
-    list-style-type: none !important;
-    margin: 0;
-    padding: 0;
-    flex-direction: row;
-}
-
-/* Esto separa los links */
-nav .navbar li,
-header nav li {
-    margin-left: 20px !important;
-    display: inline-block;
-}
-
-/* Esto pone los links blancos y quita la raya */
-nav .navbar a,
-header nav a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 500;
+    z-index: 100;
 }
 
 .logo {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 26px;
     color: var(--verde-claro);
+    text-decoration: none;
 }
 
+/* Forzamos a que la lista sea horizontal y blanca */
+header nav ul {
+    display: flex !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-direction: row !important;
+}
+
+header nav li {
+    margin-left: 25px !important;
+}
+
+header nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: var(--verde-claro) !important;
+}
+
+/* --- SECCIÓN PRINCIPAL (HERO) --- */
 .hero {
     text-align: center;
-    padding: 120px 20px;
+    padding: 140px 20px;
     background-image: url('hojas4.jpg'); 
     background-size: cover;
     background-position: center;
@@ -64,36 +72,70 @@ header nav a {
     position: relative;
     color: white;
 }
-     
+
+/* Filtro oscuro para que el texto resalte */
 .hero::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Esto oscurece la foto un 60% */
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
 }
 
 .hero h1, .hero p, .hero .btn-principal {
     position: relative;
-    z-index: 1; /* Esto saca el texto al frente del filtro */
+    z-index: 2; /* Esto los pone por encima del filtro oscuro */
 }
-h1 {
-    font-size: 3rem;
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
     color: var(--blanco);
 }
 
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* --- BOTONES Y TARJETAS --- */
 .btn-principal {
     background-color: var(--verde-claro);
     color: var(--negro);
-    padding: 15px 30px;
+    padding: 15px 35px;
     border: none;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    transform: scale(1.05);
+    background-color: #ffffff;
+}
+
+.productos-contenedor {
+    padding: 50px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 .card {
     background: #252525;
     border: 1px solid var(--beige-fibra);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--verde-claro);
+}
+
+.card h3 {
+    color: var(--verde-claro);
 }
