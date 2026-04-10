@@ -1,0 +1,60 @@
+/* Variables de color para que sea fácil cambiar después */
+:root {
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --verde-claro: #9dffb0;
+    --beige-fibra: #d2b48c; /* Este es el color de tus bolsas */
+}
+
+body {
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+header {
+    padding: 20px;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 2px solid var(--verde-claro);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--verde-claro);
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #1a1a1a, #2a2a2a);
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--blanco);
+}
+
+.btn-principal {
+    background-color: var(--verde-claro);
+    color: var(--negro);
+    padding: 15px 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card {
+    background: #252525;
+    border: 1px solid var(--beige-fibra);
+    padding: 20px;
+    border-radius: 10px;
+}
