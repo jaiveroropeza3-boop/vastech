@@ -1,145 +1,62 @@
-/* =======================================================
-   ESTILO GENERAL - VASTECH
-   ======================================================= */
-
 :root {
-    --negro: #1a1a1a;
-    --blanco: #ffffff;
+    --negro: #121212;
     --verde-claro: #9dffb0;
-    --beige-fibra: #d2b48c;
 }
 
 body {
     background-color: var(--negro);
-    color: var(--blanco);
-    font-family: 'Arial', sans-serif;
+    color: white;
+    font-family: sans-serif;
     margin: 0;
-    padding: 0;
 }
 
-/* --- MENÚ DE NAVEGACIÓN (HEADER) --- */
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px **8%**; /* Le damos más espacio a los lados para que no toquen los bordes */
-    background: rgba(0, 0, 0, 0.95);
+    padding: 20px 8%;
+    background: rgba(0,0,0,0.9);
     border-bottom: 2px solid var(--verde-claro);
-    position: relative;
-    z-index: 100;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-header nav li {
-    margin-left: **35px** !important; /* Aumentamos la separación entre cada link */
-}
+header nav ul { display: flex; list-style: none; margin: 0; }
+header nav li { margin-left: 30px; }
+header nav a { color: white; text-decoration: none; }
+header nav a:hover { color: var(--verde-claro); }
 
-.logo {
-    font-weight: bold;
-    font-size: 26px;
-    color: var(--verde-claro);
-    text-decoration: none;
-}
-
-/* Forzamos a que la lista sea horizontal y blanca */
-header nav ul {
-    display: flex !important;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    flex-direction: row !important;
-}
-
-header nav li {
-    margin-left: 25px !important;
-}
-
-header nav a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-header nav a:hover {
-    color: var(--verde-claro) !important;
-}
-
-/* --- SECCIÓN PRINCIPAL (HERO) --- */
 .hero {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hojas4.jpg') center/cover;
     text-align: center;
-    padding: 140px 20px;
-    background-image: url('hojas4.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    color: white;
 }
 
-/* Filtro oscuro para que el texto resalte */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.65);
-    z-index: 1;
-}
-
-.hero h1, .hero p, .hero .btn-principal {
-    position: relative;
-    z-index: 2; /* Esto los pone por encima del filtro oscuro */
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    color: var(--blanco);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-/* --- BOTONES Y TARJETAS --- */
 .btn-principal {
-    background-color: var(--verde-claro);
-    color: var(--negro);
-    padding: 15px 35px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
+    background: var(--verde-claro);
+    color: black;
+    padding: 10px 25px;
     text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
-.btn-principal:hover {
-    transform: scale(1.05);
-    background-color: #ffffff;
-}
+.info-impacto { padding: 50px 8%; }
+.fila-impacto { display: flex; align-items: center; gap: 40px; margin-bottom: 70px; }
+.fila-impacto.inversa { flex-direction: row-reverse; }
+.imagen-ref, .texto-ref { flex: 1; }
+.imagen-ref img { width: 100%; border-radius: 10px; border: 1px solid var(--verde-claro); }
 
-.productos-contenedor {
-    padding: 50px 5%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+.galeria-seccion { padding: 50px 8%; background: #1a1a1a; }
+.titulo-centrado { text-align: center; color: var(--verde-claro); }
+.mosaico-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.foto-item img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; transition: 0.3s; }
+.foto-item img:hover { transform: scale(1.02); border: 2px solid var(--verde-claro); }
 
-.card {
-    background: #252525;
-    border: 1px solid var(--beige-fibra);
-    padding: 25px;
-    border-radius: 12px;
-    transition: 0.3s;
-}
+footer { text-align: center; padding: 30px; color: #555; }
 
-.card:hover {
-    border-color: var(--verde-claro);
-}
-
-.card h3 {
-    color: var(--verde-claro);
-}
+@media (max-width: 768px) { .fila-impacto, .fila-impacto.inversa { flex-direction: column; text-align: center; } }
