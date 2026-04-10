@@ -22,11 +22,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 20px **8%**; /* Le damos más espacio a los lados para que no toquen los bordes */
     background: rgba(0, 0, 0, 0.95);
     border-bottom: 2px solid var(--verde-claro);
     position: relative;
     z-index: 100;
+}
+
+header nav li {
+    margin-left: **35px** !important; /* Aumentamos la separación entre cada link */
 }
 
 .logo {
