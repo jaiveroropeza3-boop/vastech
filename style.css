@@ -1,62 +1,125 @@
 :root {
-    --negro: #121212;
+    --negro: #0a0a0a;
     --verde-claro: #9dffb0;
+    --blanco: #ffffff;
 }
 
 body {
     background-color: var(--negro);
-    color: white;
-    font-family: sans-serif;
+    color: var(--blanco);
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
 }
 
+/* HEADER - Logo visible y menú alineado */
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 8%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     border-bottom: 2px solid var(--verde-claro);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-header nav ul { display: flex; list-style: none; margin: 0; }
-header nav li { margin-left: 30px; }
-header nav a { color: white; text-decoration: none; }
+.logo { 
+    color: var(--verde-claro) !important; 
+    font-weight: bold; 
+    font-size: 1.8rem; 
+    text-decoration: none; 
+}
+
+header nav ul { display: flex; list-style: none; margin: 0; gap: 30px; }
+header nav a { color: white; text-decoration: none; transition: 0.3s; }
 header nav a:hover { color: var(--verde-claro); }
 
+/* HERO - Pantalla completa con tus hojas de fondo */
 .hero {
-    height: 50vh;
+    height: 100vh; /* Ahora sí ocupa toda la pantalla */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hojas4.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('hojas4.jpg') center/cover no-repeat;
     text-align: center;
 }
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
 
 .btn-principal {
     background: var(--verde-claro);
     color: black;
-    padding: 10px 25px;
+    padding: 15px 35px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px;
+    transition: 0.3s;
 }
 
-.info-impacto { padding: 50px 8%; }
-.fila-impacto { display: flex; align-items: center; gap: 40px; margin-bottom: 70px; }
-.fila-impacto.inversa { flex-direction: row-reverse; }
+/* SECCIÓN IMPACTO - Zig-Zag Real */
+.info-impacto { padding: 100px 8%; }
+
+.fila-impacto { 
+    display: flex; 
+    align-items: center; 
+    gap: 60px; 
+    margin-bottom: 120px; 
+}
+
+/* Esto voltea una de cada dos secciones automáticamente */
+.fila-impacto:nth-child(even) { 
+    flex-direction: row-reverse; 
+}
+
 .imagen-ref, .texto-ref { flex: 1; }
-.imagen-ref img { width: 100%; border-radius: 10px; border: 1px solid var(--verde-claro); }
 
-.galeria-seccion { padding: 50px 8%; background: #1a1a1a; }
-.titulo-centrado { text-align: center; color: var(--verde-claro); }
-.mosaico-galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-.foto-item img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; transition: 0.3s; }
-.foto-item img:hover { transform: scale(1.02); border: 2px solid var(--verde-claro); }
+.imagen-ref img { 
+    width: 100%; 
+    border-radius: 15px; 
+    border: 1px solid var(--verde-claro); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
 
-footer { text-align: center; padding: 30px; color: #555; }
+.texto-ref h2 { color: var(--verde-claro); font-size: 2.5rem; }
+.texto-ref p { font-size: 1.2rem; line-height: 1.6; color: #ccc; }
 
-@media (max-width: 768px) { .fila-impacto, .fila-impacto.inversa { flex-direction: column; text-align: center; } }
+/* CATÁLOGO - Con efecto Zoom */
+.galeria-seccion { padding: 80px 8%; background: #151515; }
+.titulo-centrado { text-align: center; color: var(--verde-claro); margin-bottom: 40px; }
+
+.mosaico-galeria { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+}
+
+.foto-item { 
+    overflow: hidden; 
+    border-radius: 12px; 
+}
+
+.foto-item img { 
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+    transition: 0.5s ease; /* Tiempo del zoom */
+}
+
+/* Efecto de agrandar al tocar o pasar el mouse */
+.foto-item:hover img { 
+    transform: scale(1.1); 
+    filter: brightness(1.1);
+}
+
+footer { text-align: center; padding: 40px; color: #666; }
+
+/* Ajuste para celulares */
+@media (max-width: 768px) { 
+    .fila-impacto, .fila-impacto:nth-child(even) { 
+        flex-direction: column; 
+        text-align: center; 
+    } 
+    .hero h1 { font-size: 2.2rem; }
+}
