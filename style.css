@@ -42,6 +42,17 @@ nav {
     color: white;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Esto oscurece la foto un 60% */
+}
+
+.hero h1, .hero p, .hero .btn-principal {
+    position: relative;
+    z-index: 1; /* Esto saca el texto al frente del filtro */
+}
 h1 {
     font-size: 3rem;
     color: var(--blanco);
