@@ -20,9 +20,10 @@ header {
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .navbar a {
+    color: white !important; /* Esto los obliga a ser blancos */
+    text-decoration: none; /* Les quita la rayita de abajo */
+    font-weight: 500; /* Les da un poquito de grosor */
 }
 
 .logo {
