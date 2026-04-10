@@ -14,16 +14,21 @@ body {
 }
 
 header {
-    padding: 20px;
-    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.9);
     border-bottom: 2px solid var(--verde-claro);
+    position: relative;
+    z-index: 10;
 }
 
-    .navbar a {
-    color: white !important; /* Esto los obliga a ser blancos */
-    text-decoration: none; /* Les quita la rayita de abajo */
-    font-weight: 500; /* Les da un poquito de grosor */
-}
+ .navbar a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
 
 .logo {
     font-weight: bold;
@@ -33,15 +38,15 @@ header {
 
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background-image: url('hojas4.jpg'); /* Si tu foto tiene otro nombre, ponlo aquí */
+    padding: 120px 20px;
+    background-image: url('hojas4.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     color: white;
 }
-
+     
 .hero::before {
     content: '';
     position: absolute;
