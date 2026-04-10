@@ -22,24 +22,30 @@ header {
     border-bottom: 2px solid var(--verde-claro);
     position: relative;
     z-index: 10;
-}
-
-.navbar ul {
-    display: flex; /* Esto los pone uno al lado del otro */
-    list-style: none; /* Esto quita los puntos de la lista */
+/* Esto fuerza a la lista a ser una fila y quita los puntos */
+nav .navbar ul, 
+header nav ul {
+    display: flex !important;
+    list-style: none !important;
+    list-style-type: none !important;
     margin: 0;
     padding: 0;
+    flex-direction: row;
 }
 
-.navbar li {
-    margin-left: 20px; /* Espacio entre cada link */
+/* Esto separa los links */
+nav .navbar li,
+header nav li {
+    margin-left: 20px !important;
+    display: inline-block;
 }
 
-.navbar a {
-    color: #ffffff !important; /* Blanco puro obligatorio */
-    text-decoration: none;
+/* Esto pone los links blancos y quita la raya */
+nav .navbar a,
+header nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
     font-weight: 500;
-    font-size: 1rem;
 }
 
 .logo {
